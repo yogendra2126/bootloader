@@ -12,7 +12,7 @@ The Bootloader Project is a simple implementation of a bootloader for loading a 
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/yogendra2126/bootloader
-   cd bootloader-project
+   cd bootloader
 2. **Build the Project**
     ```bash
     ./build.sh
