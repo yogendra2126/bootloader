@@ -15,7 +15,7 @@ The Bootloader Project is a simple implementation of a bootloader for loading a 
    cd bootloader-project
 2. **Build the Project**
     ```bash
-    make
+    ./build.sh
     ```
     This will assemble the bootloader, compile the kernel (if applicable), and create a bootable image (**'bootable_image.bin'** and **'bootable_image.iso'**).
 3. **Run on Virtual Machine:**
