@@ -1,0 +1,26 @@
+# Makefile for bootloader project
+
+# Define compilers and options
+NASM = nasm
+NASM_FLAGS = -f bin
+
+# Define file names
+BOOTLOADER_SRC = bootloader.asm
+KERNEL_BIN = kernel.bin
+
+# Define targets
+all: bootable_image.bin bootable_image.iso
+
+bootable_image.bin: bootloader.bin $(KERNEL_BIN)
+    cat bootloader.bin $(KERNEL_BIN) > bootable_image.bin
+
+bootloader.bin: $(BOOTLOADER_SRC)
+    $(NASM) $(NASM_FLAGS) $(BOOTLOADER_SRC) -o bootloader.bin
+
+bootable_image.iso: bootable_image.bin
+    genisoimage -o bootable_image.iso -b bootable_image.bin .
+
+clean:
+    rm -f bootloader.bin bootable_image.bin bootable_image.iso
+
+.PHONY: all clean
